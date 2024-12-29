@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изысканный Мир Парфюмерии</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzF+3+jmoFFU==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <div class="header__container container">
+        <div class="header__logo-container">
+            <a href="#" class="header__logo-link">
+                <i class="fas fa-flask header__logo-icon"></i>
+                <span class="header__logo-text">Nurr.Parfum</span>
+            </a>
+        </div>
+        <nav class="header__nav">
+            <a href="#" class="header__nav-link">Главная</a>
+            <a href="#catalog" class="header__nav-link">Каталог</a>
+            <a href="https://www.instagram.com/ваш_ник_в_инстаграмме/" class="header__nav-link" target="_blank">
+                 <i class="fab fa-instagram"></i> Блог
+                 </a>
+            <a href="#" class="header__nav-link">Контакты</a>
+        </nav>
+        <div class="header__icons">
+            <a href="#" class="header__icon"><i class="fas fa-user"></i></a>
+            <a href="#" class="header__icon"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="slider-container">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <div class="slide"><img src="фотки для сайта/scale_1200.jpeg" alt="Магазин 1"></div>
+                <div class="slide"><img src="ed716396d763cbfe05b5ed0f6a4e4f15.jpeg" alt="Магазин 2"></div>
+                <div class="slide"><img src="i.webp" alt="Магазин 3"></div>
+                <div class="slide"><img src="i.webp" alt="Магазин 4"></div>
+            </div>
+             <button class="slider-prev" aria-label="Предыдущий слайд">&lt;</button>
+             <button class="slider-next" aria-label="Следующий слайд">&gt;</button>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="hero__container container">
+            <h1 class="hero__title">Погрузитесь в мир приглашений</h1>
+            <p class="hero__description">Изучите нашу коллекцию изысканных ароматов.</p>
+            <a href="#catalog" class="button hero__button">Начать</a>
+        </div>
+    </section>
+    <section class="products" id="catalog">
+        <div class="products__container container">
+        <h2 class="products__title">Наши ароматы</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="Изображение WhatsApp 2024-12-27 в 00.08.21_1fb5d868.jpg" alt="Аромат 1" class="product-card__image">
+                    <h3 class="product-card__title">Аромат 1</h3>
+                     <p class="product-card__price">990 ₽</p>
+                    <p class="product-card__description">Король мужской парфюмерии 
+                        БУЛГАРИ ТАЙГЕР-12мл✅</p>
+                    <a href="https://wa.me/79640200824?text=Здравствуйте,%20интересуюсь%20продуктом%20'Аромат%201'" class="button product-card__button show-more">Подробнее</a>
+                </div>
+                <div class="product-card">
+                    <img src="Изображение WhatsApp 2024-12-27 в 00.08.57_bc6c2a70.jpg" alt="Аромат 2" class="product-card__image">
+                    <h3 class="product-card__title">Аромат 2</h3>
+                     <p class="product-card__price">1200р</p>
+                    <p class="product-card__description">ЛУИ ВИТТОН ЛИМЕНСАЙТ-50мл
+                        ТОМ ФОРД ЛОСТ ЧЕРРИ-50мл✅</p>
+                    <a href="https://wa.me/79640200824?text=Здравствуйте,%20интересуюсь%20продуктом%20'Аромат%202'" class="button product-card__button show-more">Подробнее</a>
+                </div>
+                <div class="product-card">
+                    <img src="Изображение WhatsApp 2024-12-27 в 00.11.32_d8ea53d4.jpg" alt="Аромат 3" class="product-card__image">
+                    <h3 class="product-card__title">Аромат 3</h3>
+                     <p class="product-card__price">1700р</p>
+                    <p class="product-card__description">ЛУИ ВИТТОН ЛИМЕНСАЙТ-50мл
+                        ТОМ ФОРД ЛОСТ ЧЕРРИ-50мл✅</p>
+                    <a href="https://wa.me/+79640200824?text=Здравствуйте,%20интересуюсь%20продуктом%20'Аромат%203'" class="button product-card__button show-more">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <p class="footer__copyright">&copy; 2024 Nurr.Parfum. Все права защищены.</p>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const prevButton = document.querySelector('.slider-prev');
+    const nextButton = document.querySelector('.slider-next');
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    let currentIndex = 0;
+        let isAnimating = false; // Флаг для анимации
+    function updateSlider() {
+        if (isAnimating) return; // Если анимация в процессе, ничего не делаем
+        isAnimating = true; // Устанавливаем флаг
+        
+        slides.forEach((slide, index) => {
+            slide.style.transition = 'transform 0.6s ease-in-out, border-radius 0.6s ease-in-out';
+             if (index === currentIndex) {
+                slide.style.transform = 'translateX(0) scale(1.05)'; // Увеличиваем текущий слайд
+                slide.style.borderRadius = '10px'; // Скругляем текущий слайд
+            } else {
+                slide.style.transform = `translateX(${100 * (index - currentIndex)}%) scale(1)`;
+                slide.style.borderRadius = '0'; // Снимаем скругление у других слайдов
+             }
+        });
+        
+        // Сбрасываем флаг по окончании анимации
+        setTimeout(() => {
+            isAnimating = false;
+        }, 600);
+    }
+    
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+    }
+    
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+    }
+
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+        
+    updateSlider()
+       // Анимация при нажатии на "Подробнее"
+       document.querySelectorAll('.show-more').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); // Предотвращаем переход по ссылке
+
+            // Добавляем класс для анимации к кнопке
+            this.classList.add('button-clicked');
+
+            // Устанавливаем таймаут для удаления класса после анимации
+            setTimeout(() => {
+                this.classList.remove('button-clicked');
+                window.location.href = this.href;  // Переход по ссылке
+            }, 300); // 300 мс - продолжительность анимации (как в CSS)
+
+        });
+    });
+});
+</script>
+</body>
+</html>
